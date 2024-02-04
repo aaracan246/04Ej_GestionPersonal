@@ -1,5 +1,10 @@
 import java.text.DecimalFormat
-
+/**Clase base Persona:
+ * Propiedades: nombre(String) y edad(Int)
+ *
+ * Métodos: toString() -> Devuelve info de la persona // celebrarCumple() -> incrementa edad en 1 y retorna un mensaje de felicitación
+ *
+ * */
 open class Persona(nombre: String, edad: Int){
 
     val nombre = nombre
@@ -11,7 +16,15 @@ open class Persona(nombre: String, edad: Int){
     }
     override fun toString() = "$nombre, $edad."
 }
-open class Empleado(nombre: String, edad: Int, salarioBase: Double, porcentajeImpuestos: Double = 10.0): Persona(nombre, edad){
+
+
+/**Clase derivada Empleado (de Persona):
+ * Propiedades: salarioBase(Double) y porcentajeImpuestos(Double) (también debe ser aceptado en Int y default de 10.0)
+ *
+ * Métodos: calcularSalario() -> devuelve salarioBase aplicando impuestos // toString() -> Devuelve info de la persona + la de empleado // trabajar() -> retorna un mensaje de que el empleado está trabajando para la empresa
+ *
+ * */
+open class Empleado(nombre: String, edad: Int, salarioBase: Double, porcentajeImpuestos: Double = 10.0): Persona(nombre, edad){  // No recuerdo cómo hacer que acepte Int también sorry
 
     val salarioBase = salarioBase
     var porcentajeImpuestos = porcentajeImpuestos
@@ -26,6 +39,12 @@ open class Empleado(nombre: String, edad: Int, salarioBase: Double, porcentajeIm
     override fun toString() = "Nombre: ${this.nombre}, edad: ${this.edad}, salario: ${this.calcularSalario()}."
 }
 
+/**Clase derivada Gerente (de Empleado):
+ * Propiedades: bonus(Double) y exentoImpuestos(Boolean) (false default) // porcentajeImpuestos debe ser sobreescrito para que sea 33.99%.
+ *
+ * Métodos: calcularSalario() -> devuelve salarioBase aplicando impuestos o sin aplicarlos si exentoImpuestos = true // toString() -> Devuelve info de la persona + la de empleado + la de gerente // administrar() -> retorna un mensaje de que el gerente está administrando la empresa
+ *
+ * */
 class Gerente(nombre: String, edad: Int, salarioBase: Double, porcentajeImpuestos: Double = 33.99, var bonus: Double, exentoImpuestos: Boolean = false): Empleado(nombre, edad, salarioBase, porcentajeImpuestos){
 
 
