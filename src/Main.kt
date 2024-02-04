@@ -18,7 +18,7 @@ open class Empleado(nombre: String, edad: Int, salarioBase: Double, porcentajeIm
 
     open fun calcularSalario() = salarioBase * (100 - porcentajeImpuestos)/100
 
-       // return "%, .2f".format(salarioFormateado).toDouble() <- no termino de sacarlo de esta manera. Con el bigDecimals sí se hacerlo pero quiero preguntar si existe una forma más cómoda que tener que importar dependencias, etc.
+       // return "%, .2f".format(salarioFormateado).toDouble() <- no termino de sacarlo de esta manera. Con el bigDecimals sí sé hacerlo pero quiero preguntar si existe una forma más cómoda que tener que importar dependencias, etc.
 
 
     fun trabajar() = println("Actualmente ${this.nombre} está trabajando en la empresa.")
